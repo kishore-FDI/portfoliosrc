@@ -1,0 +1,240 @@
+/* =============== GOOGLE FONTS ===============
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(175, 55%, 40%);
+  --first-color-light: hsl(175, 30%, 48%);
+  --first-color-lighten: hsl(175, 40%, 62%);
+  /* --plain-light-green: radial-gradient(169.40% 89.55% at 5.76% 6.29%, rgba(0, 256, 0, 0.50) 0%, rgba(255, 255, 255, 0) 100%); */
+  --plain-light-green:rgba(0, 256, 0, 0.10);
+  --title-color: hsl(175, 40%, 16%);
+  --text-color: hsl(175, 8%, 50%);
+  --white-color: #fff;
+  --body-color: hsl(175, 100%, 99%);
+  
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: .938rem;
+  --smaller-font-size: .75rem;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== CARD ===============*/
+.container{
+  height: auto;
+  margin-inline: 1.5rem;
+  display: grid;
+  place-items: center;
+  max-width: 30rem;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.card {
+  /* padding-top:20px;
+  padding-bottom:20px; */
+  color: black;
+  max-width: 58rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem; 
+  position: relative;
+  width: 300px;
+  /* height: 315px; */
+  overflow: hidden; /* Prevents content overflow */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: var(--plain-light-green);
+  border-radius: 0.5rem;
+  padding: 2.5rem 1.5rem 3.5rem;
+  text-align: center;
+  box-shadow: 0 8px 32px hsla(178, 55%, 20%, 0.15);
+}
+.card__img {
+  width: auto;
+  height:150px;
+  /* max-height: 200px; */
+}
+.card__name, .card__profession {
+  color: var(--white-color);
+}
+.card__name {
+  /* font-size: var(--normal-font-size); */
+  color: black;
+  /* font-weight: Bold; */
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+.card__profession {
+  color:black;
+  font-size: var(--smaller-font-size);
+  font-weight: 500;
+}
+.card__social {
+  position: absolute;
+  bottom: 5px;
+  left: 48%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  column-gap: 1rem;
+  transition: transform 1.2s;
+}
+.card__social-link {
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform 0.3s;
+  cursor:pointer;
+}
+.card__skill-disp {
+  background-color: white;
+  border-radius: 18px; 
+  display: inline-block; 
+  padding: 5px 10px; 
+  transition: transform 0.3s;
+  cursor: pointer;
+  white-space: nowrap; 
+  font-size: 14px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card__skill-disp:hover {
+  transform: translateY(-0.25rem);
+}
+.card__social-link:hover {
+  transform: translateY(-0.25rem);
+}
+.card__social-icon {
+  display: inline-flex;
+  /* background: var(--gradient-color); */
+  padding: 0.25rem;
+  border-radius: 50%;
+  color: var(--white-color);
+  font-size: 1rem;
+}
+
+.info{
+  position:absolute;
+  top:-1px;
+  left:0;
+  height:100%;
+  width:100%;
+  background-color:white;
+  padding:2.5rem 1.5rem 3.3rem;
+  border-radius:0.5rem;
+  clip-path: circle(13px at 269px 26px);
+  transition:clip-path .6s ease-in-out;
+}
+.info__icon{
+  position:absolute;
+  top:1rem;
+  right:1.2rem;
+  font-size:1.2rem;
+  display:inline-flex;
+  cursor:pointer;
+  transition:opacity 0.3s;
+}
+
+.info__data {
+  display: grid;
+  row-gap: 0.25rem;
+  margin-bottom: 1.5rem;
+  transform: translateX(-4rem);
+  transition: transform 1s;
+}
+.info__name {
+  font-size: var(--normal-font-size);
+  color: var(--title-color);
+}
+.info__profession, .info__location {
+  font-size: var(--smaller-font-size);
+}
+
+
+.info:hover{
+  clip-path:circle(80%);
+}
